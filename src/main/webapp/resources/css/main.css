@@ -1,0 +1,9 @@
+@charset "UTF-8";
+body{
+	margin:0 auto;
+	background-color:skyblue;
+}
+img {
+	width:50%;
+	height:50%;
+}

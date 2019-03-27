@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<body th:fragment="body">
+	<div id="title">
+		<img src="/resources/img/iu.JPG">
+		<nav>
+			<ul class="nav_list">
+				<li class="nav_item"><a href="/">HOME</a></li>
+				<li class="nav_item"><a href="/info">INFO.</a></li>
+				<li class="nav_item"><a href="/menu">MENU</a></li>
+				<li class="nav_item"><a href="/membership">MEMBERSHIP</a></li>
+				<li class="nav_item" th:if="${session.user == null}"><a
+					href="/login">Login</a></li>
+				<li class="nav_item" th:if="${session.user}"><span
+					th:text="${session.user.name}"></span> <a href="/logout">Logout</a></li>
+			</ul>
+		</nav>
+	</div>
+	<div>
+		<!-- �럹�씠吏� 蹂� �궡�슜 �뱾�뼱媛� 遺�遺� -->
+		<th:block layout:fragment="contents" />
+	</div>
+	<!-- footer -->
+	<th:block th:include="include/footer" />
+	<!-- 怨듯넻�쑝濡� �궗�슜�븷 js�뱾 -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<!-- �듅�젙 �럹�씠吏� �쟾�슜 js�뱾 -->
+	<th:block layout:fragment="page_js" />
+</body>
+</html>
